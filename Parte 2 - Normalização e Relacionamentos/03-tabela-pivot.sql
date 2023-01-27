@@ -1,0 +1,8 @@
+CREATE TABLE viagens(
+    id SERIAL PRIMARY KEY,
+    destino_id INT REFERENCES destinos (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    turista_id INT REFERENCES turistas (id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    plano_id INT REFERENCES planos (id) ON DELETE SET NULL ON UPDATE CASCADE,
+    data_ida DATE NOT NULL,
+    data_volta DATE NOT NULL DEFAULT NOW()
+);
